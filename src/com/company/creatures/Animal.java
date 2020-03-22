@@ -1,10 +1,10 @@
-package com.company;
+package com.company.creatures;
 
 import java.io.File;
 import java.sql.SQLOutput;
 
 public class Animal {
-    final String species;
+    public final String species;
     private Double weight;
     public String name;
     File pic;
@@ -26,7 +26,7 @@ public class Animal {
 
     }
 
-    void feed() {
+    public void feed() {
         if(weight>0.0) {
             weight++;
             System.out.println("thx for food bro, " + weight + "kg");
@@ -35,7 +35,7 @@ public class Animal {
             System.out.println("Man! Your dog is dead you cannot feed him");
         }
     }
-    void takeForAWalk() {
+    public void takeForAWalk() {
         weight--;
         if(weight>0.0) {
             System.out.println("thx for taking me for walk, " + weight + "kg");
@@ -46,7 +46,7 @@ public class Animal {
         }
 
     }
-    boolean imDead() {
+    public boolean imDead() {
         if(weight<=0.0) {
             System.out.println("Your dog is dead");
             return false;
@@ -55,6 +55,10 @@ public class Animal {
             return true;
         }
 
+    }
+    public String toString()
+    {
+        return this.species + " " + this.name;
     }
 
 }

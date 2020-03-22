@@ -39,7 +39,19 @@ public class Main {
         //    me.pet.takeForAWalk();
         //}while (me.pet.imDead());
 
-        me.car = new Car("Volkswagen","Passat",1984,1.9,"Red");
+        Car passat = new Car("Volkswagen","Passat",1984,1.9,"Red", 14000.0);
+        me.setSalary(20000.0);
+        me.monthlyEarning(4000.0);
+        me.setCar(passat, me);
+        System.out.println("my salary is: " + me.getSalary());
 
+        Human human2 = new Human();
+        human2.firstName = "Ela";
+        human2.lastName = "Pietruszka";
+        human2.setSalary(320000.0);
+        human2.setCar(passat, human2);
+
+        System.out.println(me.getCar());
+        System.out.println(human2.getCar());
     }
 }

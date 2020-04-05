@@ -60,5 +60,6 @@ public class Main {
 
         System.out.println(me);
         System.out.println(human2);
+        System.out.println(me.species);
     }
 }

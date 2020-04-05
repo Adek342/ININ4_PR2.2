@@ -3,7 +3,7 @@ package com.company.creatures;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
-public class Human {
+public class Human extends Animal {
     public String firstName;
     public String lastName;
     public Phone phone;
@@ -11,6 +11,10 @@ public class Human {
     private Car car;
     private Double salary = 1000.0;
     private Double monthlyEarning;
+
+    public Human() {
+        super("Homo sapiens");
+    }
 
     public Double getSalary() {
         return salary;

@@ -8,39 +8,52 @@ public class Human extends Animal {
     public String lastName;
     public Phone phone;
     public Animal pet;
-    private Car car;
-    private Double salary = 1000.0;
+    public Car car;
+    private Double cash;
     private Double monthlyEarning;
+
+    public final static Double DEFAULT_HUMAN_WEIGHT = 70.0;
 
     public Human() {
         super("Homo sapiens");
+        this.weight = 60.0;
     }
 
-    public Double getSalary() {
-        return salary;
+    public Double getCash() {
+        return cash;
+    }
+    public void printCash(){
+        System.out.println(firstName + " " + lastName + ": " + cash);
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setCash(Double cash) {
+        this.cash = cash;
     }
 
     public void monthlyEarning(double v) {
         monthlyEarning = v;
     }
+
     public void setCar(Car car, Human human) {
-        if(human.salary >= car.getValue() || (human.monthlyEarning * 12) >= car.getValue()) {
+        if (human.cash >= car.getValue() || (human.monthlyEarning * 12) >= car.getValue()) {
             System.out.println("Congrats");
             this.car = car;
-        }
-        else {
+        } else {
             System.out.println("I'm sorry");
         }
     }
-    public Car getCar()
-    {
+
+    public Car getCar() {
+        System.out.print(this.firstName + " " + this.lastName + ": ");
         return car;
     }
-    public String toString(){
+
+    @Override
+    public void sell(Human Buyer, Human Seller, Double Price) throws Exception {
+        throw new Exception("Human is not for sale");
+    }
+
+    public String toString() {
         return this.firstName + " " + this.lastName;
     }
 }

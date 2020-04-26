@@ -1,27 +1,32 @@
 package com.company.devices;
 
-public class Car {
-    final String mark;
-    final String model;
-    final Integer yearOfProduction;
+import com.company.creatures.Human;
+
+public class Car extends Device {
     final Double engineCapacity;
-    final String colour;
-    private Double value;
 
     public Car(String mark, String model, Integer yearOfProduction, Double engineCapacity, String colour, Double value) {
-        this.mark = mark;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
+        super(mark, model, yearOfProduction, colour, value);
         this.engineCapacity = engineCapacity;
-        this.colour = colour;
-        this.value = value;
-    }
-
-    public String toString(){
-        return mark + " " + model + " " + " " + yearOfProduction;
     }
 
     public Double getValue() {
         return value;
+    }
+
+    @Override
+    void turnOn() {
+        System.out.println("engine is on");
+    }
+
+    @Override
+    public void sell(Human Buyer, Human Seller, Double Price) throws Exception {
+        try {
+            super.sell(Buyer, Seller, Price);
+            Buyer.car = this;
+            Seller.car = null;
+        } catch (Exception e) {
+            System.out.println("transaction failed");
+        }
     }
 }
